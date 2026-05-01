@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bellamy | MedTech Archive & Reels</title>
+    <title>Bellamy's Archive</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -18,6 +18,10 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -153,26 +157,60 @@
     </header>
 
     <section id="home" class="hero">
-        <h1>Welcome to Bellamy's Hub</h1>
+        <h1>Bellamy's Archive</h1>
         <p>Your ultimate resource for Medical Laboratory Science board prep, timed review videos, and general knowledge.</p>
         <a href="#archive" class="btn">Explore the Archive</a>
     </section>
 
     <section id="archive" class="section">
-        <h2 class="section-title">Bellamy's Archive</h2>
+        <h2 class="section-title">The Archive</h2>
+
+        <!-- MAJOR SUBJECTS -->
+        <h3 style="text-align: center; color: var(--secondary-color); margin-bottom: 30px; font-size: 1.8rem;">Major Subjects (20% each)</h3>
+        <div class="grid" style="margin-bottom: 60px;">
+            
+            <div class="card">
+                <h3>Clinical Chemistry</h3>
+                <p>Metabolism, endocrinology, and comprehensive organ panel reviews.</p>
+                <a href="clinchem.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
+            </div>
+
+            <div class="card">
+                <h3>Microbiology & Parasitology</h3>
+                <p>Bacteriology, virology, mycology, and tabulated parasite lifecycles.</p>
+                <a href="micropara.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
+            </div>
+
+            <div class="card">
+                <h3>Hematology</h3>
+                <p>Cellular elements, coagulation cascades, and anemia classifications.</p>
+                <a href="hematology.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
+            </div>
+
+            <div class="card">
+                <h3>Blood Banking & Serology</h3>
+                <p>Immunohematology, donor screening, and antigen-antibody reactions.</p>
+                <a href="bloodbank.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
+            </div>
+
+        </div>
+
+        <!-- MINOR SUBJECTS -->
+        <h3 style="text-align: center; color: var(--secondary-color); margin-bottom: 30px; font-size: 1.8rem;">Minor Subjects (10% each)</h3>
         <div class="grid">
+            
             <div class="card">
-                <h3>Parasitology Reviewer</h3>
-                <p>Comprehensive, 16-chapter tabulated master reviewers covering all major parasites for easy retention.</p>
+                <h3>Clinical Microscopy</h3>
+                <p>Analysis of urine, CSF, seminal fluid, and other body fluids.</p>
+                <a href="microscopy.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
             </div>
+
             <div class="card">
-                <h3>Hematology & Clin Chem</h3>
-                <p>Technical quizzes, study notes, and lab result interpretations designed for intensive board exam prep.</p>
+                <h3>Histopath & MT Laws</h3>
+                <p>Tissue processing techniques, ethics, and MedTech jurisprudence.</p>
+                <a href="histopath.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
             </div>
-            <div class="card">
-                <h3>Internship Portfolio</h3>
-                <p>Proprietary notes and case studies compiled during rigorous laboratory internship hours.</p>
-            </div>
+
         </div>
     </section>
 
