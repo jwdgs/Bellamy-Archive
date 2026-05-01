@@ -42,10 +42,21 @@
             z-index: 100;
         }
 
-        .logo {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-size: 1.8rem;
             font-weight: bold;
             letter-spacing: 2px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 5px;
+            background-color: white;
+            padding: 2px;
         }
 
         nav ul {
@@ -85,17 +96,34 @@
 
         .btn {
             display: inline-block;
-            padding: 10px 25px;
+            padding: 8px 15px;
             background-color: var(--secondary-color);
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+            font-size: 0.9rem;
             transition: background 0.3s;
         }
 
         .btn:hover {
             background-color: #2980b9;
+        }
+
+        .btn-dark {
+            background-color: var(--primary-color);
+        }
+
+        .btn-dark:hover {
+            background-color: #1a252f;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
         }
 
         .section {
@@ -121,6 +149,9 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             transition: transform 0.3s;
         }
 
@@ -137,15 +168,42 @@
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px 20px;
             margin-top: 40px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #5dade2;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">BELLAMY</div>
+        <div class="logo-container">
+            <img src="image_b8af17.png" alt="Bellamy Reels Logo" class="logo-img">
+            BELLAMY
+        </div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -159,7 +217,7 @@
     <section id="home" class="hero">
         <h1>Bellamy's Archive</h1>
         <p>Your ultimate resource for Medical Laboratory Science board prep, timed review videos, and general knowledge.</p>
-        <a href="#archive" class="btn">Explore the Archive</a>
+        <a href="#archive" class="btn" style="padding: 10px 25px; font-size: 1rem;">Explore the Archive</a>
     </section>
 
     <section id="archive" class="section">
@@ -170,27 +228,47 @@
         <div class="grid" style="margin-bottom: 60px;">
             
             <div class="card">
-                <h3>Clinical Chemistry</h3>
-                <p>Metabolism, endocrinology, and comprehensive organ panel reviews.</p>
-                <a href="clinchem.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
+                <div>
+                    <h3>Clinical Chemistry</h3>
+                    <p>Metabolism, endocrinology, and comprehensive organ panel reviews.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="clinchem-book.pdf" target="_blank" class="btn">Book</a>
+                    <a href="clinchem-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Microbiology & Parasitology</h3>
-                <p>Bacteriology, virology, mycology, and tabulated parasite lifecycles.</p>
-                <a href="micropara.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
+                <div>
+                    <h3>Microbiology & Parasitology</h3>
+                    <p>Bacteriology, virology, mycology, and tabulated parasite lifecycles.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="micropara-book.pdf" target="_blank" class="btn">Book</a>
+                    <a href="micropara-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Hematology</h3>
-                <p>Cellular elements, coagulation cascades, and anemia classifications.</p>
-                <a href="hematology.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
+                <div>
+                    <h3>Hematology</h3>
+                    <p>Cellular elements, coagulation cascades, and anemia classifications.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="hematology-book.pdf" target="_blank" class="btn">Book</a>
+                    <a href="hematology-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Blood Banking & Serology</h3>
-                <p>Immunohematology, donor screening, and antigen-antibody reactions.</p>
-                <a href="bloodbank.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
+                <div>
+                    <h3>Blood Banking & Serology</h3>
+                    <p>Immunohematology, donor screening, and antigen-antibody reactions.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="bloodbank-book.pdf" target="_blank" class="btn">Book</a>
+                    <a href="bloodbank-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                </div>
             </div>
 
         </div>
@@ -200,15 +278,25 @@
         <div class="grid">
             
             <div class="card">
-                <h3>Clinical Microscopy</h3>
-                <p>Analysis of urine, CSF, seminal fluid, and other body fluids.</p>
-                <a href="microscopy.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
+                <div>
+                    <h3>Clinical Microscopy</h3>
+                    <p>Analysis of urine, CSF, seminal fluid, and other body fluids.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="microscopy-book.pdf" target="_blank" class="btn">Book</a>
+                    <a href="microscopy-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Histopath & MT Laws</h3>
-                <p>Tissue processing techniques, ethics, and MedTech jurisprudence.</p>
-                <a href="histopath.pdf" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">View Files</a>
+                <div>
+                    <h3>Histopath & MT Laws</h3>
+                    <p>Tissue processing techniques, ethics, and MedTech jurisprudence.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="histopath-book.pdf" target="_blank" class="btn">Book</a>
+                    <a href="histopath-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                </div>
             </div>
 
         </div>
@@ -229,7 +317,12 @@
     </section>
 
     <footer id="contact">
-        <p>&copy; 2026 Bellamy. All rights reserved. Proprietary content of Bellamy's Archive.</p>
+        <div class="contact-info">
+            <h2 style="margin-bottom: 15px; color: white;">Get in Touch</h2>
+            <p style="margin-bottom: 10px;">Email: <a href="mailto:Bellamy2027v@gmail.com">Bellamy2027v@gmail.com</a></p>
+            <p>TikTok: <a href="https://tiktok.com/@bellamy_produces" target="_blank">@Bellamy</a></p>
+        </div>
+        <p class="copyright">&copy; 2026 Bellamy. All rights reserved. Proprietary content of Bellamy's Archive.</p>
     </footer>
 
 </body>
