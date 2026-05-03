@@ -113,18 +113,11 @@
             transition: background 0.3s;
             text-transform: uppercase;
             text-align: center;
+            width: 100%;
         }
 
         .btn:hover {
             background-color: #2980b9;
-        }
-
-        .btn-dark {
-            background-color: var(--primary-color);
-        }
-
-        .btn-dark:hover {
-            background-color: #1a252f;
         }
 
         .section {
@@ -184,34 +177,106 @@
             margin-bottom: 20px;
         }
 
-        /* NEW LAYOUT FOR BUTTON GROUPS */
         .card-actions {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
         }
 
-        .trance-label {
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: var(--secondary-color);
-            margin-top: 5px;
+        /* --- INTERACTIVE FOLDER SYSTEM STYLES --- */
+        .folder-container {
+            text-align: left;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            padding: 5px;
+        }
+
+        details {
             margin-bottom: 2px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .trance-row {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-        }
-
-        .trance-btn {
-            flex: 1;
-            padding: 8px 5px;
-            font-size: 0.75rem;
+        summary {
+            cursor: pointer;
+            padding: 10px 15px;
+            font-weight: bold;
             background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            list-style: none; /* Removes default arrow */
+            font-size: 0.95rem;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:hover {
+            background-color: #1a252f;
+        }
+
+        summary::before {
+            content: '📁';
+            font-size: 1.1rem;
+        }
+
+        details[open] > summary::before {
+            content: '📂';
+        }
+
+        /* Subfolder Styles */
+        .subfolder summary {
+            background-color: var(--secondary-color);
+            margin-top: 5px;
+            font-size: 0.85rem;
+            padding: 8px 12px;
+        }
+
+        .subfolder summary:hover {
+            background-color: #2980b9;
+        }
+
+        .folder-content {
+            padding-left: 10px;
+            margin-top: 5px;
+        }
+
+        /* File Links Styles */
+        .file-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 8px 5px 8px 15px;
+        }
+
+        .file-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background-color: #ffffff;
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--gold-accent);
+            transition: all 0.2s;
+        }
+
+        .file-link:hover {
+            background-color: #f1f3f5;
+            transform: translateX(4px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .file-link::before {
+            content: '📄';
+            font-size: 1rem;
         }
 
         footer {
@@ -277,7 +342,7 @@
     <section id="home" class="hero">
         <h1>Bellamy's Archive</h1>
         <p>Your ultimate resource for Medical Laboratory Science board prep, timed review videos, and general knowledge.</p>
-        <a href="#archive" class="btn" style="padding: 12px 30px; font-size: 1.1rem;">Explore subjects</a>
+        <a href="#archive" class="btn" style="padding: 12px 30px; font-size: 1.1rem; width: auto;">Explore subjects</a>
     </section>
 
     <section id="archive" class="section">
@@ -294,12 +359,29 @@
                     <p>Metabolism, endocrinology, comprehensive organ panels, and clinical correlations.</p>
                 </div>
                 <div class="card-actions">
-                    <a href="clinchem-book.pdf" target="_blank" class="btn">Book</a>
-                    <div class="trance-label">Trances & Reviewers</div>
-                    <div class="trance-row">
-                        <a href="trances/bellamys-trances/clinchem.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
-                        <a href="trances/xiao/clinchem.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
-                        <a href="trances/practice-questions/clinchem.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    <a href="clinchem-book.pdf" target="_blank" class="btn">Main Book</a>
+                    <div class="folder-container">
+                        <details class="main-folder">
+                            <summary>Trances & Reviewers</summary>
+                            <div class="folder-content">
+                                <details class="subfolder"><summary>Bellamy's Trances</summary>
+                                    <div class="file-list">
+                                        <a href="trances/bellamys-trances/clinchem-file1.pdf" target="_blank" class="file-link">Reviewer Part 1</a>
+                                        <a href="trances/bellamys-trances/clinchem-file2.pdf" target="_blank" class="file-link">Reviewer Part 2</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Xiao</summary>
+                                    <div class="file-list">
+                                        <a href="trances/xiao/clinchem-notes.pdf" target="_blank" class="file-link">Xiao Notes</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Practice Questions</summary>
+                                    <div class="file-list">
+                                        <a href="trances/practice-questions/clinchem-quiz.pdf" target="_blank" class="file-link">Quiz 1</a>
+                                    </div>
+                                </details>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -311,17 +393,34 @@
                     <p>Bacteriology, virology, mycology, and infectious disease diagnostics.</p>
                 </div>
                 <div class="card-actions">
-                    <a href="microbiology-book.pdf" target="_blank" class="btn">Book</a>
-                    <div class="trance-label">Trances & Reviewers</div>
-                    <div class="trance-row">
-                        <a href="trances/bellamys-trances/microbiology.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
-                        <a href="trances/xiao/microbiology.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
-                        <a href="trances/practice-questions/microbiology.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    <a href="microbiology-book.pdf" target="_blank" class="btn">Main Book</a>
+                    <div class="folder-container">
+                        <details class="main-folder">
+                            <summary>Trances & Reviewers</summary>
+                            <div class="folder-content">
+                                <details class="subfolder"><summary>Bellamy's Trances</summary>
+                                    <div class="file-list">
+                                        <a href="trances/bellamys-trances/micro-file1.pdf" target="_blank" class="file-link">Reviewer Part 1</a>
+                                        <a href="trances/bellamys-trances/micro-file2.pdf" target="_blank" class="file-link">Reviewer Part 2</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Xiao</summary>
+                                    <div class="file-list">
+                                        <a href="trances/xiao/micro-notes.pdf" target="_blank" class="file-link">Xiao Notes</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Practice Questions</summary>
+                                    <div class="file-list">
+                                        <a href="trances/practice-questions/micro-quiz.pdf" target="_blank" class="file-link">Quiz 1</a>
+                                    </div>
+                                </details>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
 
-            <!-- PARASITOLOGY -->
+            <!-- PARASITOLOGY (WITH MASTER REVIEWER) -->
             <div class="card">
                 <div>
                     <h3>Parasitology</h3>
@@ -329,13 +428,31 @@
                 </div>
                 <div class="card-actions">
                     <a href="https://drive.google.com/drive/folders/1Ix1tIyEHK1naTXuc_u9K5IAxir7aKt2Y?usp=sharing" target="_blank" class="btn">Books (Drive)</a>
-                    <div class="trance-label">Trances & Reviewers</div>
-                    <div class="trance-row">
-                        <!-- Master Reviewer strictly in Bellamy's folder -->
-                        <a href="trances/bellamys-trances/parasitology-master-reviewer.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
-                        <!-- Xiao and Practice Qs use standard names -->
-                        <a href="trances/xiao/parasitology.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
-                        <a href="trances/practice-questions/parasitology.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    <div class="folder-container">
+                        <details class="main-folder">
+                            <summary>Trances & Reviewers</summary>
+                            <div class="folder-content">
+                                <!-- MASTER REVIEWER IS HERE -->
+                                <details class="subfolder"><summary>Bellamy's Trances</summary>
+                                    <div class="file-list">
+                                        <a href="trances/bellamys-trances/parasitology-master-reviewer.pdf" target="_blank" class="file-link">Master Reviewer (16 Chapters)</a>
+                                        <a href="trances/bellamys-trances/para-extra-notes.pdf" target="_blank" class="file-link">Extra Notes</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Xiao</summary>
+                                    <div class="file-list">
+                                        <a href="trances/xiao/para-notes1.pdf" target="_blank" class="file-link">Xiao Notes Part 1</a>
+                                        <a href="trances/xiao/para-notes2.pdf" target="_blank" class="file-link">Xiao Notes Part 2</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Practice Questions</summary>
+                                    <div class="file-list">
+                                        <a href="trances/practice-questions/para-quiz1.pdf" target="_blank" class="file-link">Quiz 1</a>
+                                        <a href="trances/practice-questions/para-quiz2.pdf" target="_blank" class="file-link">Quiz 2</a>
+                                    </div>
+                                </details>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -347,12 +464,29 @@
                     <p>Cellular elements, coagulation cascades, anemia classifications, and WBC disorders.</p>
                 </div>
                 <div class="card-actions">
-                    <a href="hematology-book.pdf" target="_blank" class="btn">Book</a>
-                    <div class="trance-label">Trances & Reviewers</div>
-                    <div class="trance-row">
-                        <a href="trances/bellamys-trances/hematology.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
-                        <a href="trances/xiao/hematology.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
-                        <a href="trances/practice-questions/hematology.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    <a href="hematology-book.pdf" target="_blank" class="btn">Main Book</a>
+                    <div class="folder-container">
+                        <details class="main-folder">
+                            <summary>Trances & Reviewers</summary>
+                            <div class="folder-content">
+                                <details class="subfolder"><summary>Bellamy's Trances</summary>
+                                    <div class="file-list">
+                                        <a href="trances/bellamys-trances/hema-file1.pdf" target="_blank" class="file-link">Reviewer Part 1</a>
+                                        <a href="trances/bellamys-trances/hema-file2.pdf" target="_blank" class="file-link">Reviewer Part 2</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Xiao</summary>
+                                    <div class="file-list">
+                                        <a href="trances/xiao/hema-notes.pdf" target="_blank" class="file-link">Xiao Notes</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Practice Questions</summary>
+                                    <div class="file-list">
+                                        <a href="trances/practice-questions/hema-quiz.pdf" target="_blank" class="file-link">Quiz 1</a>
+                                    </div>
+                                </details>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -364,12 +498,28 @@
                     <p>Immunohematology, donor screening, component therapy, and blood group systems.</p>
                 </div>
                 <div class="card-actions">
-                    <a href="bloodbank-book.pdf" target="_blank" class="btn">Book</a>
-                    <div class="trance-label">Trances & Reviewers</div>
-                    <div class="trance-row">
-                        <a href="trances/bellamys-trances/bloodbank.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
-                        <a href="trances/xiao/bloodbank.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
-                        <a href="trances/practice-questions/bloodbank.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    <a href="bloodbank-book.pdf" target="_blank" class="btn">Main Book</a>
+                    <div class="folder-container">
+                        <details class="main-folder">
+                            <summary>Trances & Reviewers</summary>
+                            <div class="folder-content">
+                                <details class="subfolder"><summary>Bellamy's Trances</summary>
+                                    <div class="file-list">
+                                        <a href="trances/bellamys-trances/bb-file1.pdf" target="_blank" class="file-link">Reviewer Part 1</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Xiao</summary>
+                                    <div class="file-list">
+                                        <a href="trances/xiao/bb-notes.pdf" target="_blank" class="file-link">Xiao Notes</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Practice Questions</summary>
+                                    <div class="file-list">
+                                        <a href="trances/practice-questions/bb-quiz.pdf" target="_blank" class="file-link">Quiz 1</a>
+                                    </div>
+                                </details>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -381,12 +531,28 @@
                     <p>Antigen-antibody reactions, immune system principles, and infectious markers.</p>
                 </div>
                 <div class="card-actions">
-                    <a href="serology-book.pdf" target="_blank" class="btn">Book</a>
-                    <div class="trance-label">Trances & Reviewers</div>
-                    <div class="trance-row">
-                        <a href="trances/bellamys-trances/serology.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
-                        <a href="trances/xiao/serology.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
-                        <a href="trances/practice-questions/serology.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    <a href="serology-book.pdf" target="_blank" class="btn">Main Book</a>
+                    <div class="folder-container">
+                        <details class="main-folder">
+                            <summary>Trances & Reviewers</summary>
+                            <div class="folder-content">
+                                <details class="subfolder"><summary>Bellamy's Trances</summary>
+                                    <div class="file-list">
+                                        <a href="trances/bellamys-trances/sero-file1.pdf" target="_blank" class="file-link">Reviewer Part 1</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Xiao</summary>
+                                    <div class="file-list">
+                                        <a href="trances/xiao/sero-notes.pdf" target="_blank" class="file-link">Xiao Notes</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Practice Questions</summary>
+                                    <div class="file-list">
+                                        <a href="trances/practice-questions/sero-quiz.pdf" target="_blank" class="file-link">Quiz 1</a>
+                                    </div>
+                                </details>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -404,12 +570,28 @@
                     <p>Analysis of urine, CSF, seminal fluid, and other body fluid analysis techniques.</p>
                 </div>
                 <div class="card-actions">
-                    <a href="microscopy-book.pdf" target="_blank" class="btn">Book</a>
-                    <div class="trance-label">Trances & Reviewers</div>
-                    <div class="trance-row">
-                        <a href="trances/bellamys-trances/microscopy.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
-                        <a href="trances/xiao/microscopy.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
-                        <a href="trances/practice-questions/microscopy.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    <a href="microscopy-book.pdf" target="_blank" class="btn">Main Book</a>
+                    <div class="folder-container">
+                        <details class="main-folder">
+                            <summary>Trances & Reviewers</summary>
+                            <div class="folder-content">
+                                <details class="subfolder"><summary>Bellamy's Trances</summary>
+                                    <div class="file-list">
+                                        <a href="trances/bellamys-trances/cm-file1.pdf" target="_blank" class="file-link">Reviewer Part 1</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Xiao</summary>
+                                    <div class="file-list">
+                                        <a href="trances/xiao/cm-notes.pdf" target="_blank" class="file-link">Xiao Notes</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Practice Questions</summary>
+                                    <div class="file-list">
+                                        <a href="trances/practice-questions/cm-quiz.pdf" target="_blank" class="file-link">Quiz 1</a>
+                                    </div>
+                                </details>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -421,12 +603,28 @@
                     <p>Tissue processing techniques, special staining, and cellular alterations.</p>
                 </div>
                 <div class="card-actions">
-                    <a href="histopath-book.pdf" target="_blank" class="btn">Book</a>
-                    <div class="trance-label">Trances & Reviewers</div>
-                    <div class="trance-row">
-                        <a href="trances/bellamys-trances/histopath.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
-                        <a href="trances/xiao/histopath.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
-                        <a href="trances/practice-questions/histopath.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    <a href="histopath-book.pdf" target="_blank" class="btn">Main Book</a>
+                    <div class="folder-container">
+                        <details class="main-folder">
+                            <summary>Trances & Reviewers</summary>
+                            <div class="folder-content">
+                                <details class="subfolder"><summary>Bellamy's Trances</summary>
+                                    <div class="file-list">
+                                        <a href="trances/bellamys-trances/histo-file1.pdf" target="_blank" class="file-link">Reviewer Part 1</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Xiao</summary>
+                                    <div class="file-list">
+                                        <a href="trances/xiao/histo-notes.pdf" target="_blank" class="file-link">Xiao Notes</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Practice Questions</summary>
+                                    <div class="file-list">
+                                        <a href="trances/practice-questions/histo-quiz.pdf" target="_blank" class="file-link">Quiz 1</a>
+                                    </div>
+                                </details>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -438,12 +636,28 @@
                     <p>Medical Technology jurisprudence, laboratory ethics, and professional regulations.</p>
                 </div>
                 <div class="card-actions">
-                    <a href="mtlaws-book.pdf" target="_blank" class="btn">Book</a>
-                    <div class="trance-label">Trances & Reviewers</div>
-                    <div class="trance-row">
-                        <a href="trances/bellamys-trances/mtlaws.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
-                        <a href="trances/xiao/mtlaws.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
-                        <a href="trances/practice-questions/mtlaws.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    <a href="mtlaws-book.pdf" target="_blank" class="btn">Main Book</a>
+                    <div class="folder-container">
+                        <details class="main-folder">
+                            <summary>Trances & Reviewers</summary>
+                            <div class="folder-content">
+                                <details class="subfolder"><summary>Bellamy's Trances</summary>
+                                    <div class="file-list">
+                                        <a href="trances/bellamys-trances/mtlaws-file1.pdf" target="_blank" class="file-link">Reviewer Part 1</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Xiao</summary>
+                                    <div class="file-list">
+                                        <a href="trances/xiao/mtlaws-notes.pdf" target="_blank" class="file-link">Xiao Notes</a>
+                                    </div>
+                                </details>
+                                <details class="subfolder"><summary>Practice Questions</summary>
+                                    <div class="file-list">
+                                        <a href="trances/practice-questions/mtlaws-quiz.pdf" target="_blank" class="file-link">Quiz 1</a>
+                                    </div>
+                                </details>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
