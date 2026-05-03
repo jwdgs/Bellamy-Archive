@@ -112,6 +112,7 @@
             font-size: 0.95rem;
             transition: background 0.3s;
             text-transform: uppercase;
+            text-align: center;
         }
 
         .btn:hover {
@@ -124,14 +125,6 @@
 
         .btn-dark:hover {
             background-color: #1a252f;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 15px;
-            flex-wrap: wrap;
         }
 
         .section {
@@ -188,7 +181,37 @@
 
         .card p {
             font-size: 1rem;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* NEW LAYOUT FOR BUTTON GROUPS */
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .trance-label {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-top: 5px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .trance-row {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .trance-btn {
+            flex: 1;
+            padding: 8px 5px;
+            font-size: 0.75rem;
+            background-color: var(--primary-color);
         }
 
         footer {
@@ -264,69 +287,107 @@
         <h3 style="text-align: center; color: var(--secondary-color); margin-bottom: 35px; font-size: 1.8rem; font-weight: 500;">Major Subjects</h3>
         <div class="grid" style="margin-bottom: 70px;">
             
+            <!-- CLINICAL CHEMISTRY -->
             <div class="card">
                 <div>
                     <h3>Clinical Chemistry</h3>
                     <p>Metabolism, endocrinology, comprehensive organ panels, and clinical correlations.</p>
                 </div>
-                <div class="btn-group">
+                <div class="card-actions">
                     <a href="clinchem-book.pdf" target="_blank" class="btn">Book</a>
-                    <a href="clinchem-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                    <div class="trance-label">Trances & Reviewers</div>
+                    <div class="trance-row">
+                        <a href="trances/bellamys-trances/clinchem.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
+                        <a href="trances/xiao/clinchem.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
+                        <a href="trances/practice-questions/clinchem.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    </div>
                 </div>
             </div>
 
+            <!-- MICROBIOLOGY -->
             <div class="card">
                 <div>
                     <h3>Microbiology</h3>
                     <p>Bacteriology, virology, mycology, and infectious disease diagnostics.</p>
                 </div>
-                <div class="btn-group">
+                <div class="card-actions">
                     <a href="microbiology-book.pdf" target="_blank" class="btn">Book</a>
-                    <a href="microbiology-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                    <div class="trance-label">Trances & Reviewers</div>
+                    <div class="trance-row">
+                        <a href="trances/bellamys-trances/microbiology.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
+                        <a href="trances/xiao/microbiology.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
+                        <a href="trances/practice-questions/microbiology.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    </div>
                 </div>
             </div>
 
+            <!-- PARASITOLOGY -->
             <div class="card">
                 <div>
                     <h3>Parasitology</h3>
                     <p>Comprehensive tabular life cycles and laboratory diagnostic techniques.</p>
                 </div>
-                <div class="btn-group">
+                <div class="card-actions">
                     <a href="https://drive.google.com/drive/folders/1Ix1tIyEHK1naTXuc_u9K5IAxir7aKt2Y?usp=sharing" target="_blank" class="btn">Books (Drive)</a>
-                    <a href="Parasitology/xiao/parasitology-master-reviewer.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                    <div class="trance-label">Trances & Reviewers</div>
+                    <div class="trance-row">
+                        <!-- Master Reviewer strictly in Bellamy's folder -->
+                        <a href="trances/bellamys-trances/parasitology-master-reviewer.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
+                        <!-- Xiao and Practice Qs use standard names -->
+                        <a href="trances/xiao/parasitology.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
+                        <a href="trances/practice-questions/parasitology.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    </div>
                 </div>
             </div>
 
+            <!-- HEMATOLOGY -->
             <div class="card">
                 <div>
                     <h3>Hematology</h3>
                     <p>Cellular elements, coagulation cascades, anemia classifications, and WBC disorders.</p>
                 </div>
-                <div class="btn-group">
+                <div class="card-actions">
                     <a href="hematology-book.pdf" target="_blank" class="btn">Book</a>
-                    <a href="hematology-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                    <div class="trance-label">Trances & Reviewers</div>
+                    <div class="trance-row">
+                        <a href="trances/bellamys-trances/hematology.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
+                        <a href="trances/xiao/hematology.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
+                        <a href="trances/practice-questions/hematology.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    </div>
                 </div>
             </div>
 
+            <!-- BLOOD BANKING -->
             <div class="card">
                 <div>
                     <h3>Blood Banking</h3>
                     <p>Immunohematology, donor screening, component therapy, and blood group systems.</p>
                 </div>
-                <div class="btn-group">
+                <div class="card-actions">
                     <a href="bloodbank-book.pdf" target="_blank" class="btn">Book</a>
-                    <a href="bloodbank-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                    <div class="trance-label">Trances & Reviewers</div>
+                    <div class="trance-row">
+                        <a href="trances/bellamys-trances/bloodbank.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
+                        <a href="trances/xiao/bloodbank.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
+                        <a href="trances/practice-questions/bloodbank.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    </div>
                 </div>
             </div>
 
+            <!-- SEROLOGY & IMMUNOLOGY -->
             <div class="card">
                 <div>
                     <h3>Serology & Immunology</h3>
                     <p>Antigen-antibody reactions, immune system principles, and infectious markers.</p>
                 </div>
-                <div class="btn-group">
+                <div class="card-actions">
                     <a href="serology-book.pdf" target="_blank" class="btn">Book</a>
-                    <a href="serology-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                    <div class="trance-label">Trances & Reviewers</div>
+                    <div class="trance-row">
+                        <a href="trances/bellamys-trances/serology.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
+                        <a href="trances/xiao/serology.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
+                        <a href="trances/practice-questions/serology.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    </div>
                 </div>
             </div>
 
@@ -336,36 +397,54 @@
         <h3 style="text-align: center; color: var(--secondary-color); margin-bottom: 35px; font-size: 1.8rem; font-weight: 500;">Minor Subjects</h3>
         <div class="grid">
             
+            <!-- CLINICAL MICROSCOPY -->
             <div class="card">
                 <div>
                     <h3>Clinical Microscopy</h3>
                     <p>Analysis of urine, CSF, seminal fluid, and other body fluid analysis techniques.</p>
                 </div>
-                <div class="btn-group">
+                <div class="card-actions">
                     <a href="microscopy-book.pdf" target="_blank" class="btn">Book</a>
-                    <a href="microscopy-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                    <div class="trance-label">Trances & Reviewers</div>
+                    <div class="trance-row">
+                        <a href="trances/bellamys-trances/microscopy.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
+                        <a href="trances/xiao/microscopy.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
+                        <a href="trances/practice-questions/microscopy.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    </div>
                 </div>
             </div>
 
+            <!-- HISTOPATHOLOGY -->
             <div class="card">
                 <div>
                     <h3>Histopathology</h3>
                     <p>Tissue processing techniques, special staining, and cellular alterations.</p>
                 </div>
-                <div class="btn-group">
+                <div class="card-actions">
                     <a href="histopath-book.pdf" target="_blank" class="btn">Book</a>
-                    <a href="histopath-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                    <div class="trance-label">Trances & Reviewers</div>
+                    <div class="trance-row">
+                        <a href="trances/bellamys-trances/histopath.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
+                        <a href="trances/xiao/histopath.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
+                        <a href="trances/practice-questions/histopath.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    </div>
                 </div>
             </div>
 
+            <!-- MT LAWS & BIOETHICS -->
             <div class="card">
                 <div>
                     <h3>MT Laws & Bioethics</h3>
                     <p>Medical Technology jurisprudence, laboratory ethics, and professional regulations.</p>
                 </div>
-                <div class="btn-group">
+                <div class="card-actions">
                     <a href="mtlaws-book.pdf" target="_blank" class="btn">Book</a>
-                    <a href="mtlaws-trances.pdf" target="_blank" class="btn btn-dark">Trances</a>
+                    <div class="trance-label">Trances & Reviewers</div>
+                    <div class="trance-row">
+                        <a href="trances/bellamys-trances/mtlaws.pdf" target="_blank" class="btn btn-dark trance-btn">Bellamy's</a>
+                        <a href="trances/xiao/mtlaws.pdf" target="_blank" class="btn btn-dark trance-btn">Xiao</a>
+                        <a href="trances/practice-questions/mtlaws.pdf" target="_blank" class="btn btn-dark trance-btn">Practice Qs</a>
+                    </div>
                 </div>
             </div>
 
